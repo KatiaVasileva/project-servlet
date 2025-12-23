@@ -1,4 +1,3 @@
-<%--@elvariable id="data" type="java.util.List&lt;com.tictactoe.Field&gt;"--%>
 <%@ page import="com.tictactoe.Sign" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
@@ -12,6 +11,7 @@
 </head>
 <body>
 <h1>Tic-Tac-Toe</h1>
+<%--@elvariable id="data" type="java.util.List&lt;com.tictactoe.Field&gt;"--%>
 <table>
     <tr>
         <td onclick="window.location='/logic?click=0'">${data.get(0).getSign()}</td>
@@ -41,6 +41,12 @@
 <%--@elvariable id="winner" type="com.tictactoe.Sign""--%>
 <c:if test="${winner == NOUGHTS}">
     <h1>NOUGHTS WIN!</h1>
+    <button onclick="restart()">Start again</button>
+</c:if>
+<%--@elvariable id="draw" type="java.lang.Boolean"--%>
+<c:if test="${draw}">
+    <h1>IT's A DRAW</h1>
+    <br/>
     <button onclick="restart()">Start again</button>
 </c:if>
 

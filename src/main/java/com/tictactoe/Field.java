@@ -29,7 +29,7 @@ public class Field {
         return field.entrySet().stream()
                 .filter(e -> e.getValue() == Sign.EMPTY)
                 .map(Map.Entry::getKey)
-                .findFirst().orElse(-1);
+                .findAny().orElse(-1);
     }
 
     public List<Sign> getFieldData() {
@@ -52,9 +52,11 @@ public class Field {
         );
 
         for (List<Integer> winPossibility : winPossibilities) {
-            if (field.get(winPossibility.get(0)) == field.get(winPossibility.get(1))
-                && field.get(winPossibility.get(0)) == field.get(winPossibility.get(2))) {
-                return field.get(winPossibility.get(0));
+            Sign first = field.get(winPossibility.get(0));
+            if (first != Sign.EMPTY
+                    && first == field.get(winPossibility.get(1))
+                    && first == field.get(winPossibility.get(2))) {
+                return first;
             }
         }
         return Sign.EMPTY;

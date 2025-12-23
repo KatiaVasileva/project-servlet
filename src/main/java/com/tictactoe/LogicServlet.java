@@ -39,6 +39,12 @@ public class LogicServlet extends HttpServlet {
             if(checkWin(session, resp, field)) {
                 return;
             }
+        } else {
+            session.setAttribute("draw", true);
+            List<Sign> data = field.getFieldData();
+            session.setAttribute("data", data);
+            resp.sendRedirect(req.getContextPath() + "/index.jsp");
+            return;
         }
 
         List<Sign> data = field.getFieldData();
@@ -66,7 +72,7 @@ public class LogicServlet extends HttpServlet {
 
     private boolean checkWin(HttpSession session, HttpServletResponse resp, Field field) throws IOException {
         Sign winner = field.checkWin();
-        if (winner == Sign.CROSS|| winner == Sign.NOUGHT) {
+        if (Sign.CROSS == winner || Sign.NOUGHT == winner) {
             session.setAttribute("winner", winner);
             List<Sign> data = field.getFieldData();
             session.setAttribute("data", data);
