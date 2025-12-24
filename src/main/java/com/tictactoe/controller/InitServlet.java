@@ -1,5 +1,7 @@
-package com.tictactoe;
+package com.tictactoe.controller;
 
+import com.tictactoe.model.Field;
+import com.tictactoe.model.Sign;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,7 +11,6 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 @WebServlet(name = "InitServlet", value = "/start")
 public class InitServlet extends HttpServlet {
@@ -18,7 +19,6 @@ public class InitServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
 
         Field field = new Field();
-        Map<Integer, Sign> fieldData = field.getField();
 
         List<Sign> data = field.getFieldData();
 

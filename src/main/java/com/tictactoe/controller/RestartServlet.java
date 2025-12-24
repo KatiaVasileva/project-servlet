@@ -1,4 +1,4 @@
-package com.tictactoe;
+package com.tictactoe.controller;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

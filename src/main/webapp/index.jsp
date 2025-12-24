@@ -1,4 +1,4 @@
-<%@ page import="com.tictactoe.Sign" %>
+<%@ page import="com.tictactoe.model.Sign" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
